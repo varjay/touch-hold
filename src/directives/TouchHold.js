@@ -2,7 +2,9 @@ import { addEvt, cleanEvt, getTouchTarget } from '../utils/touch.js'
 import { position, leftClick, stopAndPrevent, noop } from '../utils/event.js'
 import { clearSelection } from '../utils/selection.js'
 
+let u = navigator.userAgent
 let isMobile = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || u.indexOf('Android') > -1 || u.indexOf('Adr') > -1
+let hasTouch = 'ontouchstart' in window || window.navigator.maxTouchPoints > 0
 
 function update (el, binding) {
   const ctx = el.__qtouchhold
@@ -143,7 +145,7 @@ export default {
       [ el, 'mousedown', 'mouseStart', `passive${modifiers.mouseCapture === true ? 'Capture' : ''}` ]
     ])
 
-    client.has.touch === true && addEvt(ctx, 'main', [
+    hasTouch === true && addEvt(ctx, 'main', [
       [ el, 'touchstart', 'touchStart', `passive${modifiers.capture === true ? 'Capture' : ''}` ],
       [ el, 'touchend', 'noop', 'notPassiveCapture' ]
     ])

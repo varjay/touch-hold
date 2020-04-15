@@ -1,7 +1,7 @@
 {
   "name": "q-touch-hold",
-  "version": "1.0.0",
-  "description": "Build high-performance VueJS user interfaces (SPA, PWA, SSR, Mobile and Desktop) in record time",
+  "version": "1.0.1",
+  "description": "Pull out the touch-hold of Quasar Framework directive to make the package very small.",
   "module": "src/index.esm.js",
   "typings": "dist/types/index.d.ts",
   "main": "dist/quasar.common.js",

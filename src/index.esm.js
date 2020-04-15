@@ -1,15 +1,7 @@
-import VuePlugin from './vue-plugin.js'
-
-import * as directives from './directives.js'
-
-export * from './directives.js'
+import TouchHold from './directives/TouchHold.js'
 
 export default {
-  ...VuePlugin,
-  install (Vue, opts) {
-    VuePlugin.install(Vue, {
-      directives,
-      ...opts
-    })
+  install (Vue) {
+    Vue.directive('touch-hold', TouchHold)
   }
 }
